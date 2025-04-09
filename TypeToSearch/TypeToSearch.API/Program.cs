@@ -2,6 +2,7 @@ using Microsoft.OpenApi.Models;
 using TypeToSearch.API.Middlewares;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace TypeToSearch.API
 {
