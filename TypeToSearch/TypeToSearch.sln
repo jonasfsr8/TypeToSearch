@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypeToSearch.API", "TypeToSearch.API\TypeToSearch.API.csproj", "{196304CA-B4EA-4359-BDDE-852770489CDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TypeToSearch.API", "TypeToSearch.API\TypeToSearch.API.csproj", "{196304CA-B4EA-4359-BDDE-852770489CDD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{28149329-387D-4324-BAED-04A0F88A91F5} = {28149329-387D-4324-BAED-04A0F88A91F5}
+		{A7F4F60A-E26D-46C3-9E9A-EC2C3E354301} = {A7F4F60A-E26D-46C3-9E9A-EC2C3E354301}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Adapters", "Adapters", "{9D89EAF4-94EF-4BDF-8548-EB687F955ADC}"
 EndProject
@@ -11,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Driven", "Driven", "{99D105
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Driving", "Driving", "{8ACC4C3C-F2D8-49F6-80EF-0E6D2F87E3CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypeToSearch.Infrastructure", "TypeToSearch.Infrastructure\TypeToSearch.Infrastructure.csproj", "{28149329-387D-4324-BAED-04A0F88A91F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TypeToSearch.Infrastructure", "TypeToSearch.Infrastructure\TypeToSearch.Infrastructure.csproj", "{28149329-387D-4324-BAED-04A0F88A91F5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{0E1F917D-BE71-4082-BD5B-FA807309BCD1}"
 EndProject
@@ -19,9 +23,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{C33AA13E-9621-45D0-9437-B2BCCDC628B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypeToSearch.Domain", "TypeToSearch.Domain\TypeToSearch.Domain.csproj", "{A7F4F60A-E26D-46C3-9E9A-EC2C3E354301}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TypeToSearch.Domain", "TypeToSearch.Domain\TypeToSearch.Domain.csproj", "{A7F4F60A-E26D-46C3-9E9A-EC2C3E354301}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypeToSearch.Application", "TypeToSearch.Application\TypeToSearch.Application.csproj", "{1138E0DB-E5DD-432D-824F-8012622C7915}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TypeToSearch.Application", "TypeToSearch.Application\TypeToSearch.Application.csproj", "{1138E0DB-E5DD-432D-824F-8012622C7915}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
