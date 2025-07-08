@@ -1,7 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Net;
 using System.Text.Json;
-using TypeToSearch.Domain.Dtos.Reponses;
+using TypeToSearch.Domain.Dtos.Responses;
 using TypeToSearch.Domain.Exceptions;
 
 namespace TypeToSearch.API.Middlewares

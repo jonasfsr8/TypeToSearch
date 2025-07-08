@@ -1,4 +1,4 @@
-﻿using TypeToSearch.Domain.Dtos.Reponses;
+﻿using TypeToSearch.Domain.Dtos.Responses;
 
 namespace TypeToSearch.Domain.Interfaces.Services
 {

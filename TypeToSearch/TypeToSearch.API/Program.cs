@@ -15,35 +15,32 @@ namespace TypeToSearch.API
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddControllers();
-
             builder.Services.AddEndpointsApiExplorer();
-
-            #region Swagger Options
 
             builder.Services.AddSwaggerGen(options =>
             {
                 options.EnableAnnotations();
-
                 options.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "TypeToSearch.API",
+                    Title = "TypeToSearch.API"
                 });
 
-                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                var securityScheme = new OpenApiSecurityScheme
                 {
                     Name = "Authorization",
                     Type = SecuritySchemeType.ApiKey,
                     Scheme = "Bearer",
                     BearerFormat = "JWT",
                     In = ParameterLocation.Header,
-                    Description = "Insira 'Bearer' [espaco] e o token JWT valido na caixa de texto abaixo.\nExemplo: 'Bearer eyJhbGciOiJIU'",
-                });
+                    Description = "Insira 'Bearer' [espaço] e um token JWT válido abaixo.\nExemplo: 'Bearer eyJhbGciOiJIU...'"
+                };
 
-                options.AddSecurityRequirement(new OpenApiSecurityRequirement
+                options.AddSecurityDefinition("Bearer", securityScheme);
+
+                var securityRequirement = new OpenApiSecurityRequirement
                 {
-                    {
-                        new OpenApiSecurityScheme
+                    { new OpenApiSecurityScheme
                         {
                             Reference = new OpenApiReference
                             {
@@ -53,13 +50,10 @@ namespace TypeToSearch.API
                         },
                         Array.Empty<string>()
                     }
-                });
+                };
+
+                options.AddSecurityRequirement(securityRequirement);
             });
-
-            #endregion
-
-            #region Jwt Authentication
-
             builder.Services.AddAuthentication(x =>
             {
                 x.DefaultSignInScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -80,22 +74,14 @@ namespace TypeToSearch.API
                     };
                 });
 
-            #endregion
-
-            #region Dependencies
             ServiceInfrastructureExtensions.AddInfrastructureServices(builder.Services);
             ServiceApplicationExtensions.AddApplicationServices(builder.Services);
-            #endregion
 
             var app = builder.Build();
 
             app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "TypeToSearch.API v1");
-            });
+            app.UseSwaggerUI();
 
-            // Permissões (de qualquer origem, metodo Http e cabeçalho)
             app.UseCors(builder =>
             {
                 builder.AllowAnyOrigin();
@@ -107,10 +93,8 @@ namespace TypeToSearch.API
 
             app.UseAuthentication();
 
-            #region Middlewares
             app.UseMiddleware<ExceptionHandlingMiddleware>();
             app.UseAuthorization();
-            #endregion
 
             app.MapControllers();
 

@@ -1,4 +1,4 @@
-﻿namespace TypeToSearch.Domain.Dtos.Reponses
+﻿namespace TypeToSearch.Domain.Dtos.Responses
 {
     public class CotacaoResponseDto
     {

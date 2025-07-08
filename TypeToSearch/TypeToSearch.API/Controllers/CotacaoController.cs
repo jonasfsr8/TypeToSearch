@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using TypeToSearch.Application.Dtos;
+using TypeToSearch.Application.Dtos.Requests;
 using TypeToSearch.Application.Services;
 
 namespace TypeToSearch.API.Controllers
@@ -24,7 +24,7 @@ namespace TypeToSearch.API.Controllers
             var result = await _service.SearchAddressAsync(zipcode);
 
             if (result.Content == null)
-                return StatusCode(result.StatusCode, result.Msg);
+                return StatusCode(result.StatusCode, result);
 
             return Ok(result);
         }
@@ -36,7 +36,7 @@ namespace TypeToSearch.API.Controllers
             var result = await _service.QuoteAsync(request);
 
             if (result.Content == null)
-                return StatusCode(result.StatusCode, result.Msg);
+                return StatusCode(result.StatusCode, result);
 
             return Ok(result);
         }

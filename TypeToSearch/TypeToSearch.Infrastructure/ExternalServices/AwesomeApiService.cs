@@ -1,6 +1,6 @@
 ﻿using RestSharp;
 using System.Text.Json;
-using TypeToSearch.Domain.Dtos.Reponses;
+using TypeToSearch.Domain.Dtos.Responses;
 using TypeToSearch.Domain.Interfaces.Services;
 using TypeToSearch.Infrastructure.ExternalServices.Dtos.Responses;
 

@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
-using TypeToSearch.Application.Dtos;
-using TypeToSearch.Domain.Dtos.Reponses;
+using TypeToSearch.Application.Dtos.Requests;
+using TypeToSearch.Domain.Dtos.Responses;
 using TypeToSearch.Domain.Interfaces.Services;
 
 namespace TypeToSearch.Application.Services
