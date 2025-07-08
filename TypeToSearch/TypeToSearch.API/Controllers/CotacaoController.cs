@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using TypeToSearch.Application.Dtos.Requests;
 using TypeToSearch.Application.Services;
@@ -7,7 +8,7 @@ namespace TypeToSearch.API.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class CotacaoController : ControllerBase
     {
         private readonly CotacaoService _service;
@@ -17,7 +18,7 @@ namespace TypeToSearch.API.Controllers
             _service = service;
         }
 
-        [HttpGet("/GetAddress/{zipcode}")]
+        [HttpGet("GetAddress/{zipcode}")]
         [SwaggerOperation(Summary = "Retorna endereço completo através do CEP")]
         public async Task<IActionResult> GetAddressAsync(string zipcode)
         {
@@ -29,7 +30,7 @@ namespace TypeToSearch.API.Controllers
             return Ok(result);
         }
 
-        [HttpPost("/Quote")]
+        [HttpPost("Quote")]
         [SwaggerOperation(Summary = "Retorna cotação entre duas moedas")]
         public async Task<IActionResult> GetQuoteAsync([FromBody] QuoteRequestDto request)
         {

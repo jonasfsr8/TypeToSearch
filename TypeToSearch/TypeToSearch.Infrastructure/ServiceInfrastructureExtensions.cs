@@ -1,8 +1,11 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RestSharp;
+using TypeToSearch.Domain.Interfaces.Repositories;
 using TypeToSearch.Domain.Interfaces.Services;
+using TypeToSearch.Infrastructure.Contexts;
 using TypeToSearch.Infrastructure.ExternalServices;
+using TypeToSearch.Infrastructure.Repositories;
 
 namespace TypeToSearch.Infrastructure
 {
@@ -10,16 +13,11 @@ namespace TypeToSearch.Infrastructure
     {
         public static IServiceCollection AddInfrastructureServices(this IServiceCollection services)
         {
-            //#region Contexts
-            //services.AddSingleton<ContextMongoDB>();
-            //services.AddScoped<RelacionalContext>();
-            //#endregion
+            services.AddSingleton<MongoContext>();
+            services.AddScoped<SqlContext>();
 
-            //#region Repositories
-            //services.AddScoped<ICobrancaHistoricoRepository, CobrancaHistoricoRepository>();
-            //#endregion
+            services.AddScoped<IUserRepository, UserRepository>();
 
-            #region Services
             services.AddScoped<IAwesomeApiService>(provider =>
             {
                 var configuration = provider.GetRequiredService<IConfiguration>();
@@ -31,7 +29,6 @@ namespace TypeToSearch.Infrastructure
 
                 return new AwesomeApiService(client, cepUrl, currUrl, token);
             });
-            #endregion
 
             return services;
         }
