@@ -17,6 +17,7 @@ namespace TypeToSearch.Infrastructure
             services.AddScoped<SqlContext>();
 
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ICombinacaoRepository, CombinacaoRepository>();
 
             services.AddScoped<IAwesomeApiService>(provider =>
             {

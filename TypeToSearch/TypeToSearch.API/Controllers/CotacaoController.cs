@@ -30,6 +30,18 @@ namespace TypeToSearch.API.Controllers
             return Ok(result);
         }
 
+        [HttpGet("Combinations")]
+        [SwaggerOperation(Summary = "Lista combinações disponíveis de cotação")]
+        public async Task<IActionResult> CodeList()
+        {
+            var result = await _service.GetAllCombinations();
+
+            if (result.Content == null)
+                return StatusCode(result.StatusCode, result);
+
+            return Ok(result);
+        }
+
         [HttpPost("Quote")]
         [SwaggerOperation(Summary = "Retorna cotação entre duas moedas")]
         public async Task<IActionResult> GetQuoteAsync([FromBody] QuoteRequestDto request)
